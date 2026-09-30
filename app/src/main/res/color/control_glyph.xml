@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The glyph colour for the controls, so it flips to white when the blue focus fill lands
+    underneath it.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/control_glyph_disabled" android:state_enabled="false" />
+    <item android:color="@color/control_focused_glyph" android:state_focused="true" />
+    <item android:color="@color/control_focused_glyph" android:state_pressed="true" />
+    <item android:color="@color/control_glyph_default" />
+</selector>

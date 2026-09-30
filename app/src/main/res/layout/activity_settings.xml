@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The Settings menu: the three things that are not chatting.
+
+    A screen of its own rather than the popup menu it used to be. A popup cannot be driven
+    by focus the way everything else in the app can, and the config import - which is the
+    point of the whole app on a keypad - deserved a labelled row rather than second place in
+    an overflow.
+
+    The rows are ordinary focusable views, so the framework's own focus search walks them and
+    Up from the first one reaches the header's Back button without any key handling.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kaiwa_bg"
+    android:orientation="vertical">
+
+    <!--
+        Wraps rather than control_height: SystemBars adds the status bar inset as top padding,
+        and a fixed height has nowhere to grow - the Back chip would be pushed out of the header.
+        The chip inside is control_height tall, so wrapping lands on the same height as before
+        wherever there is no inset to add.
+    -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="6dp"
+        android:paddingRight="14dp">
+
+        <Button
+            android:id="@+id/buttonBack"
+            style="@style/Kaiwa.Button.Back"
+            android:text="@string/action_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/settings_title"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rowImport"
+        style="@style/Kaiwa.MenuRow"
+        android:text="@string/import_config">
+
+        <requestFocus />
+    </TextView>
+
+    <TextView
+        android:id="@+id/rowApiSettings"
+        style="@style/Kaiwa.MenuRow"
+        android:text="@string/api_settings_title" />
+
+    <TextView
+        android:id="@+id/rowAbout"
+        style="@style/Kaiwa.MenuRow"
+        android:text="@string/action_about" />
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Every button in the app. A grey chip by default, blue the moment the D-pad lands on it
+    - which is the only way this device can say "you are here".
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/control_bg_disabled" />
+            <corners android:radius="@dimen/corner_radius" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/control_border" />
+        </shape>
+    </item>
+
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/control_focused" />
+            <corners android:radius="@dimen/corner_radius" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/control_focused_border" />
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/control_focused" />
+            <corners android:radius="@dimen/corner_radius" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/control_focused_border" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/control_bg" />
+            <corners android:radius="@dimen/corner_radius" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/control_border" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The message box: a soft rounded field rather than the platform's underline, and a blue
+    edge while it holds focus, which it does by default.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/control_bg" />
+            <corners android:radius="@dimen/corner_radius" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/primary" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/control_bg" />
+            <corners android:radius="@dimen/corner_radius" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/control_border" />
+        </shape>
+    </item>
+</selector>

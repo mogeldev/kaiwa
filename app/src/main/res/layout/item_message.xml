@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    One message, as a bubble: the user's pushed right and blue, Kaiwa's left and grey. The
+    side is all that says who is talking, so there is no speaker label here.
+
+    Two weighted spacers share the row and the adapter hides one of them - hiding the
+    leading spacer leaves the bubble at the left, hiding the trailing one puts it right.
+    Two layouts would do the same thing for no gain on a list this short.
+
+    The bubble is a TextView rather than a container because maxWidth, the thing that stops
+    a long reply from filling the screen, is a TextView attribute.
+
+    Everything here is as tight as it can be without looking cramped, because this screen
+    is 276dp wide and every dp spent on padding is a dp of conversation pushed off it: 8dp
+    of row margin against 12dp before, and 252dp of bubble against 232. The bubble can
+    therefore reach within 8dp of the far edge while still reading as a bubble rather than
+    a full-width row.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="8dp"
+    android:paddingTop="3dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="3dp">
+
+    <Space
+        android:id="@+id/spacerStart"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/textBubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.08"
+        android:maxWidth="252dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="7dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="7dp"
+        android:textColor="@color/text_primary"
+        android:textSize="15sp" />
+
+    <Space
+        android:id="@+id/spacerEnd"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+</LinearLayout>

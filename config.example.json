@@ -1,0 +1,47 @@
+{
+  "version": 1,
+
+  "baseUrl": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "apiKey": "sk-REPLACE-ME",
+
+  "systemPrompt": "You are Kaiwa, a helpful assistant on a very small phone screen. Reply in plain text, keep answers short and direct.",
+
+  "auth": { "header": "Authorization", "scheme": "Bearer" },
+  "headers": {},
+  "query": {},
+  "body": { "thinking": { "type": "enabled" } },
+
+  "chatPath": "/chat/completions",
+  "modelsPath": "/models",
+
+  "temperature": 0.7,
+  "maxTokens": 65536,
+  "timeoutSeconds": 180,
+  "allowCleartext": false,
+  "tools": ["weather", "wikipedia", "air_quality"],
+
+  "transcribeUse": "selfhosted",
+
+  "transcribe": {
+    "baseUrl": "https://whisper.example.com",
+    "apiKey": "REPLACE-WITH-THE-X-API-KEY",
+    "path": "/v2/transcribe",
+    "header": "X-API-Key",
+    "scheme": "",
+    "field": "audio",
+    "form": {},
+    "timeoutSeconds": 300
+  },
+
+  "transcribeCloud": {
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "sk-REPLACE-WITH-THE-OPENAI-KEY",
+    "path": "/audio/transcriptions",
+    "header": "Authorization",
+    "scheme": "Bearer",
+    "field": "file",
+    "form": { "model": "gpt-4o-mini-transcribe" },
+    "timeoutSeconds": 120
+  }
+}

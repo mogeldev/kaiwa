@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kaiwa_bg"
+    android:orientation="horizontal">
+
+    <!--
+        Left column: the transcript with the message box beneath it. There is no action
+        bar above it - the screen's actions moved into the sidebar - so this column gets
+        the full height of the screen, and the box sits directly under the transcript with
+        space around it rather than a divider.
+    -->
+    <LinearLayout
+        android:id="@+id/columnTranscript"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!--
+                Never a focus target: the transcript is read, not navigated, so the keypad
+                cannot land on it and it never draws a selection highlight. Scrolling is
+                done with the buttons on the right, and the list jumps back to the newest
+                message whenever one arrives.
+            -->
+            <ListView
+                android:id="@+id/listMessages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:listSelector="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/textEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="28dp"
+                android:text="@string/empty_state"
+                android:textColor="@color/text_muted"
+                android:textSize="13sp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/editInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_input"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_input"
+            android:imeOptions="actionSend"
+            android:inputType="textShortMessage"
+            android:maxLength="4000"
+            android:minHeight="@dimen/control_height"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp">
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <!--
+        The control column. Everything the chat screen can do is here, in one group at the
+        foot of it: the app name used to run down the top of this column, and with that gone
+        the three actions moved down to join the transcript controls - which is where the
+        newest messages are, and so where the eye already is.
+
+        Every control being an ordinary Button is also what lets the D-pad reach them
+        anywhere, which the action-bar items they replaced never managed.
+    -->
+    <LinearLayout
+        android:id="@+id/columnControls"
+        android:layout_width="@dimen/side_bar_width"
+        android:layout_height="match_parent"
+        android:background="@color/surface"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonNewChat"
+            style="@style/Kaiwa.Control"
+            android:text="@string/action_new_chat" />
+
+        <Button
+            android:id="@+id/buttonChats"
+            style="@style/Kaiwa.Control"
+            android:text="@string/action_chats" />
+
+        <Button
+            android:id="@+id/buttonSettings"
+            style="@style/Kaiwa.Control"
+            android:text="@string/action_settings" />
+
+        <Button
+            android:id="@+id/buttonScrollUp"
+            style="@style/Kaiwa.Control"
+            android:text="@string/scroll_up" />
+
+        <Button
+            android:id="@+id/buttonScrollDown"
+            style="@style/Kaiwa.Control"
+            android:text="@string/scroll_down" />
+
+        <Button
+            android:id="@+id/buttonMic"
+            style="@style/Kaiwa.Control"
+            android:text="@string/mic" />
+
+        <Button
+            android:id="@+id/buttonSend"
+            style="@style/Kaiwa.Control"
+            android:layout_marginBottom="4dp"
+            android:text="@string/action_send" />
+    </LinearLayout>
+</LinearLayout>

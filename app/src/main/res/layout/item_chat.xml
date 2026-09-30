@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    One chat, with its own Delete on the right.
+
+    The row is focusable and clickable itself because of that button: a ListView stops
+    delivering item clicks once its rows contain focusable views, so opening a chat is the
+    row's own click. The row takes the D-pad first - a ViewGroup is focusable before its
+    descendants - and Right moves into the Delete. That leaves both actions reachable,
+    which a single Delete acting on "the selected row" never was.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_row"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="14dp"
+    android:paddingTop="9dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="9dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textChatTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textChatWhen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_muted"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonRowDelete"
+        style="@style/Kaiwa.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/control_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/action_delete" />
+</LinearLayout>

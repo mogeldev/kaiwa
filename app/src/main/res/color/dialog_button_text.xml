@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The buttons of a system dialog. AppCompat colours them with the accent, which would make
+    them the only blue thing in the app that is not the D-pad's position - so they follow the
+    rule instead: grey at rest, and white on the blue fill of bg_dialog_button while the D-pad
+    is on them.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/control_focused_glyph" android:state_focused="true" />
+    <item android:color="@color/control_focused_glyph" android:state_pressed="true" />
+    <item android:color="@color/text_secondary" />
+</selector>

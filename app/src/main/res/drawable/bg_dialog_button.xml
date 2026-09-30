@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The buttons of a system dialog, marked the way every other control in the app is: nothing
+    at rest, a blue fill the moment the D-pad lands on one. Blue text on the dialog's grey was
+    the mark before, at about 1.7:1 - too faint to find on this screen. White on the fill is
+    about 6:1.
+
+    The inset and the padding are the platform's own for a borderless button, so the buttons
+    keep their size and their place in the dialog.
+-->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="4dp"
+    android:insetTop="6dp"
+    android:insetRight="4dp"
+    android:insetBottom="6dp">
+    <selector>
+        <item android:state_focused="true">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/control_focused" />
+                <corners android:radius="@dimen/corner_radius" />
+                <stroke
+                    android:width="1dp"
+                    android:color="@color/control_focused_border" />
+                <padding
+                    android:left="8dp"
+                    android:top="4dp"
+                    android:right="8dp"
+                    android:bottom="4dp" />
+            </shape>
+        </item>
+
+        <item android:state_pressed="true">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/control_focused" />
+                <corners android:radius="@dimen/corner_radius" />
+                <stroke
+                    android:width="1dp"
+                    android:color="@color/control_focused_border" />
+                <padding
+                    android:left="8dp"
+                    android:top="4dp"
+                    android:right="8dp"
+                    android:bottom="4dp" />
+            </shape>
+        </item>
+
+        <item>
+            <shape android:shape="rectangle">
+                <solid android:color="@android:color/transparent" />
+                <padding
+                    android:left="8dp"
+                    android:top="4dp"
+                    android:right="8dp"
+                    android:bottom="4dp" />
+            </shape>
+        </item>
+    </selector>
+</inset>

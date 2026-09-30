@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Dark, with a steel blue for everything belonging to the user. The palette follows
+        the messaging app the design came from: the page is near-black, chrome sits one
+        step above it, and the two bubble colours carry the only real colour on screen.
+
+        Blue has exactly one job besides the user's own bubbles: saying where the D-pad is.
+        Nothing is blue at rest - no important button, no primary action - so a blue surface
+        can never mean anything but "you are here".
+    -->
+    <color name="primary">#2C6795</color>
+
+    <!-- Surfaces, from the page upwards. -->
+    <color name="kaiwa_bg">#0E1216</color>
+    <color name="surface">#161B21</color>
+    <color name="divider">#242B33</color>
+
+    <!-- Bubbles. -->
+    <color name="bubble_user">#2C6795</color>
+    <color name="bubble_kaiwa">#242B33</color>
+    <color name="bubble_error">#4A2427</color>
+
+    <!-- Text. -->
+    <color name="text_primary">#E8EDF2</color>
+    <color name="text_secondary">#A9B4C0</color>
+    <color name="text_muted">#8B98A5</color>
+    <color name="text_hint">#6E7B88</color>
+    <color name="text_on_bubble">#FFFFFF</color>
+    <color name="text_on_bubble_muted">#C6DCEA</color>
+    <color name="text_error">#F0A9A2</color>
+
+    <!-- Controls: a grey chip that turns blue the moment it has focus. -->
+    <color name="control_bg">#1E252D</color>
+    <color name="control_border">#2E3741</color>
+    <color name="control_glyph_default">#E8EDF2</color>
+    <color name="control_focused">#2C6795</color>
+    <color name="control_focused_border">#4A8CC0</color>
+    <color name="control_focused_glyph">#FFFFFF</color>
+    <color name="control_bg_disabled">#191F26</color>
+    <color name="control_glyph_disabled">#4C5661</color>
+
+    <!--
+        The keypad highlight in the chat list. Semi-transparent so it tints the row under
+        it rather than replacing it.
+    -->
+    <color name="list_selector">#592C6795</color>
+</resources>

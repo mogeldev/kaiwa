@@ -1,0 +1,21 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Never commit API keys
+key.txt
+*.key
+secrets.properties
+config.json
+
+# Release signing: the keystore and its passwords never belong in this repository.
+*.jks
+*.keystore
+keystore.properties

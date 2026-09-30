@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        The right-hand column, which carries the whole chat screen: +, the chat list, the
+        gear, the two scroll arrows, the microphone and Send.
+
+        Everything in it is a single glyph, so the width is set by the widest one plus
+        padding rather than by a label, and every dp given back is a dp of transcript.
+    -->
+    <dimen name="side_bar_width">44dp</dimen>
+
+    <!--
+        One height for every control: the sidebar's buttons, a submenu's header row, and
+        the message box.
+    -->
+    <dimen name="control_height">34dp</dimen>
+
+    <!-- Shared by the controls and the message box, so the screen has one corner. -->
+    <dimen name="corner_radius">8dp</dimen>
+</resources>

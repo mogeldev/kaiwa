@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kaiwa_bg"
+    android:orientation="vertical">
+
+    <!--
+        This screen's own header: a Back button and a title, as ordinary views rather than
+        an action bar. An action bar's up arrow would be the conventional place for it, but
+        action-bar items cannot take focus on a screen the platform considers touch-capable,
+        and a Back button the keypad cannot reach is no way out at all.
+    -->
+    <!--
+        Wraps rather than control_height: SystemBars adds the status bar inset as top padding,
+        and a fixed height has nowhere to grow - the Back chip would be pushed out of the header.
+        The chip inside is control_height tall, so wrapping lands on the same height as before
+        wherever there is no inset to add.
+    -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="6dp"
+        android:paddingRight="14dp">
+
+        <Button
+            android:id="@+id/buttonBack"
+            style="@style/Kaiwa.Button.Back"
+            android:text="@string/action_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/chat_list_title"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!--
+        The list itself is deliberately not focusable, and its rows are: a ListView that
+        holds focus keeps the D-pad to itself for moving its own selection, which leaves
+        the rows - and the Delete inside each one - unreachable. With the list out of the
+        way, and told in ChatListActivity that its rows take focus, Up and Down move focus
+        between rows and Right moves into the Delete.
+    -->
+    <ListView
+        android:id="@+id/listChats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:descendantFocusability="afterDescendants"
+        android:divider="@color/divider"
+        android:dividerHeight="1dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@android:color/transparent" />
+</LinearLayout>

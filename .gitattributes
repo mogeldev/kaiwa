@@ -1,0 +1,5 @@
+# Text is stored with LF; the scripts keep the line endings they run with.
+* text=auto
+gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
